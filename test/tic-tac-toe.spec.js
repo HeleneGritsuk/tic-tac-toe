@@ -1,3 +1,9 @@
+/*const TicTacToe = require('../src/tic-tac-toe.js');
+let game;
+
+game = new TicTacToe();
+game.getCurrentPlayerSymbol();*/
+
 const TicTacToe = require('../src/tic-tac-toe.js');
 
 describe('TicTacToe', () => {
