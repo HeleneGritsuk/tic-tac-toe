@@ -35,34 +35,33 @@ class TicTacToe {
         }
     }
 
-    isFinished() {
-        for(var x=0,y=0;x<3;x++,y++) {
-        if((this.matrix[x][0]==this.matrix[x][1])&&(this.matrix[x][1]==this.matrix[x][2])&&(this.matrix[x][0]!=0)) {
-            this.winner=this.matrix[x][0];
-            return true;
-         }
-        if((this.matrix[0][y]==this.matrix[1][y])&&(this.matrix[1][y]==this.matrix[2][y])&&(this.matrix[0][y]!=0)) {
-            this.winner=this.matrix[0][y];
-            return true;
-         }
-        }
-        if ((this.matrix[0][0]==this.matrix[1][1])&&(this.matrix[1][1]==this.matrix[2][2])&&(this.matrix[0][0]!=0)) {
-            this.winner=this.matrix[0][0];
-            return true;
-        }
-        if ((this.matrix[0][2]==this.matrix[1][1])&&(this.matrix[1][1]==this.matrix[2][0])&&(this.matrix[0][2]!=0)) {
-            this.winner=this.matrix[0][2];
-            return true;
-         }
-
-        if (this.noMoreTurns()) return true;
-
+    isFinished() {      
+        if (this.getWinner() || this.noMoreTurns()) return true;
         return false;
     }
 
     getWinner() {
-        if(this.isFinished()) return this.winner;
-        else return null;
+        for(var x=0,y=0;x<3;x++,y++) {
+        if((this.matrix[x][0]==this.matrix[x][1])&&(this.matrix[x][1]==this.matrix[x][2])&&(this.matrix[x][0]!=0)) {
+            this.winner=this.matrix[x][0];
+            return this.winner;
+         }
+        if((this.matrix[0][y]==this.matrix[1][y])&&(this.matrix[1][y]==this.matrix[2][y])&&(this.matrix[0][y]!=0)) {
+            this.winner=this.matrix[0][y];
+            return this.winner;
+         }
+        }
+        if ((this.matrix[0][0]==this.matrix[1][1])&&(this.matrix[1][1]==this.matrix[2][2])&&(this.matrix[0][0]!=0)) {
+            this.winner=this.matrix[0][0];
+            return this.winner;
+        }
+        if ((this.matrix[0][2]==this.matrix[1][1])&&(this.matrix[1][1]==this.matrix[2][0])&&(this.matrix[0][2]!=0)) {
+            this.winner=this.matrix[0][2];
+            return this.winner;
+         }
+
+        return null;
+        
     }
 
     noMoreTurns() {
